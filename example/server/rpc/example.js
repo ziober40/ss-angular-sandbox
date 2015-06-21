@@ -1,24 +1,23 @@
 var intervalId = {};
 var crypto = require('crypto');
+// sqllite3 connectivity
+var sqlite3 = require('sqlite3').verbose();
+var file = "../db/templog.db";  
 
 exports.actions = function(req,res,ss) {
   req.use('session');
 
   return {
     on: function() {
-      intervalId = setInterval(function() {
 
-        var message = 'witaj swiecie';
+      intervalId = setInterval(function(){
+        var db = new sqlite3.Database(file);
+        db.all("SELECT * FROM temps where timestamp>datetime('now','-2 hours')  order by timestamp", function(err, rows) {  
+        ss.publish.all('ss-example', rows[rows.length-1].timestamp + " " + rows[rows.length-1].temp);
+        db.close();
+      });   
+      },3000);
 
-        ss.publish.all('ss-example', message)
-        // crypto.randomBytes(16, function(ex,buf) {
-        //   var message = 'Message from space: ' + buf;
-        //   ss.publish.all('ss-example', message);
-        // });
-      }, 3000);
-      setTimeout(function() {
-        res("Receiving SpaceMail"); 
-      }, 2000);
       console.log("session data: " + JSON.stringify(req.session));
     },
     off: function(reason) {

@@ -1,12 +1,12 @@
 <div ng-show="authenticated">
-  <div class="row">
+  <!-- <div class="row">
     <div class="span12">
       <div class="hero-unit">
         <h1>SS-Angular Test App</h1>
         <p>A test application that integrates SocketStream and AngularJS</p>
       </div>
     </div>
-  </div>
+  </div> -->
   <div ng-controller="SSCtrl">
     <div class="row">
       <div class="span2">
@@ -63,6 +63,7 @@
               <th>Has Ball</th>
               <th>Leading By</th>
               <th>Server Time</th>
+              <th>Log</th>
             </tr>
           </thead>
           <tbody>
@@ -70,6 +71,7 @@
               <td>{{modelData.hasBall}}</td>
               <td>{{modelData.leadingBy}}</td>
               <td>{{modelData.serverTime}}</td>
+              <td>{{modelData.lastOne}}</td>
             </tr>
           </tbody>
         </table>
@@ -81,6 +83,8 @@
           </li>
         </ul>
       </div>
+<div google-chart chart="chartObject" style="{{cssStyle}}"></div>
+      
     </div>
   </div>
 </div>
