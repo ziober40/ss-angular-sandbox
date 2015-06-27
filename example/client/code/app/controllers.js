@@ -1,4 +1,4 @@
-angular.module('exampleApp', ['ssAngular'])
+angular.module('exampleApp', ['ssAngular','gridster'])
   .config(['authProvider', '$routeProvider', '$locationProvider', function(authProvider, $routeProvider, $locationProvider) {
     authProvider.authServiceModule('example');
     authProvider.loginPath('/login');
@@ -20,6 +20,20 @@ angular.module('exampleApp', ['ssAngular'])
     $scope.messages = []
     $scope.streaming = false;
     $scope.status = "";
+
+$scope.standardItems = [
+  { sizeX: 2, sizeY: 1, row: 0, col: 0 },
+  { sizeX: 2, sizeY: 2, row: 0, col: 2 },
+  { sizeX: 1, sizeY: 1, row: 0, col: 4 },
+  { sizeX: 1, sizeY: 1, row: 0, col: 5 },
+  { sizeX: 2, sizeY: 1, row: 1, col: 0 },
+  { sizeX: 1, sizeY: 1, row: 1, col: 4 },
+  { sizeX: 1, sizeY: 2, row: 1, col: 5 },
+  { sizeX: 1, sizeY: 1, row: 2, col: 0 },
+  { sizeX: 2, sizeY: 1, row: 2, col: 1 },
+  { sizeX: 1, sizeY: 1, row: 2, col: 3 },
+  { sizeX: 1, sizeY: 1, row: 2, col: 4 }
+];
 
     $scope.linkModel('example', {
       name: 'Tom'

@@ -19,7 +19,9 @@ exports.make = function(des,chan,ss) {
   
         var lastOne = '';
 
-        if(rows){
+
+
+        if(!err && rows.length > 0){
           lastOne = rows[rows.length-1].timestamp + " " + rows[rows.length-1].temp;
         }else{
           lastOne = err;
