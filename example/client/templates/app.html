@@ -84,11 +84,14 @@
         </ul>
       </div>
       Tutaj znajduje sie przyklad gridstera! <br />
-      <div gridster>
-        <ul>
-            <li gridster-item="item" ng-repeat="item in standardItems"></li>
-        </ul>
-    </div>
+<div gridster>
+    <ul>
+        <li gridster-item="item" ng-repeat="item in customItemMap">
+          {{item.dupe}}
+        </li>
+    </ul>
+</div>
+
 <div google-chart chart="chartObject" style="{{cssStyle}}"></div>
       
     </div>
