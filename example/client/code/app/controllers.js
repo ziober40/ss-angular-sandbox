@@ -19,7 +19,7 @@ angular.module('exampleApp', ['ssAngular', 'gridster'])
   }])
   .run(['gridsterConfig', function(gridsterConfig) {
     gridsterConfig.resizable.start = function(ev, el, widget) {
-      widget.dupe = "S:";
+      widget.message = "S:";
     };
   }])
   .controller('SSCtrl', ['$scope', '$location', 'pubsub', 'rpc', 'model', 'auth', function($scope, $location, pubsub, rpc, model, auth) {
@@ -64,10 +64,6 @@ angular.module('exampleApp', ['ssAngular', 'gridster'])
       }
     };
 
-
-
-
-
     $scope.linkModel('example', {
       name: 'Tom'
     }, 'modelData');
@@ -77,7 +73,7 @@ angular.module('exampleApp', ['ssAngular', 'gridster'])
       sizeY: 1,
       row: 0,
       col: 0,
-      dupe: "siema",
+      message: "hello",
       siusiak: $scope.modelData
     } 
     ];
@@ -85,7 +81,7 @@ angular.module('exampleApp', ['ssAngular', 'gridster'])
     // console.dir($scope.modelData);
 
     $scope.$watch('customItemMap', function(items){
-      console.log("chuje muje");
+      console.log("custom Item map");
     }, true);
 
     // $scope.$on('gridster-movable-changed', function(gridster) {
